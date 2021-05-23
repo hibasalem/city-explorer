@@ -22,12 +22,24 @@
 
 - - - 
 
-Name of feature: ***lab06***
+Name of feature: ***Set up your React repository & API keys.***
 
-Estimate of time needed to complete: ***2 hours*** 
+Estimate of time needed to complete: ***30 min*** 
 
 Start time: ***3:00 ***
 
-Finish time: _____
+Finish time: ***3:45***
 
-Actual time needed to complete: _____
+Actual time needed to complete: *** 45 min ***
+
+- - - 
+
+Name of feature: ***Set up your React repository & API keys.***
+
+Estimate of time needed to complete: ***30 min*** 
+
+Start time: ***3:00 ***
+
+Finish time: ***3:45***
+
+Actual time needed to complete: *** 45 min ***
