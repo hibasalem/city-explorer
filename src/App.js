@@ -27,7 +27,7 @@ class App extends React.Component {
         let url = `https://eu1.locationiq.com/v1/search.php?key=pk.8b89beb044f7bff265b36ceb931a413c&q=${this.state.search}&format=json`;
 
         let serverRoute = process.env.REACT_APP_SERVER;
-        const weatherUrl = `${serverRoute}/weather?city_name=${this.state.search.toLowerCase()}`;
+        const weatherUrl = `${serverRoute}weather?city_name=${this.state.search.toLowerCase()}`;
 
         try {
             let result = await axios.get(url);
