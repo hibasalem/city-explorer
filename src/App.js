@@ -40,6 +40,7 @@ class App extends React.Component {
             let result = await axios.get(locationUrl);
             let weatherData = await axios.get(weatherUrl);
             let moviesData = await axios.get(moviesUrl);
+            
 
             this.setState({
                 data: result.data[0],
