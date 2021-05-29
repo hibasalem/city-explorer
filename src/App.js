@@ -31,9 +31,9 @@ class App extends React.Component {
 
         let serverRoute = process.env.REACT_APP_SERVER;
 
-        const weatherUrl = `${serverRoute}/weather?city_name=${this.state.searchQuery}`;
+        const weatherUrl = `${serverRoute}weather?city_name=${this.state.searchQuery}`;
 
-        const moviesUrl = `${serverRoute}/movies?city_name=${this.state.searchQuery}`;
+        const moviesUrl = `${serverRoute}movies?city_name=${this.state.searchQuery}`;
 
         try {
 
