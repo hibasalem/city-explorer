@@ -1,25 +1,28 @@
 # cityexplore
 
 **Author**: Hiba salem
-**Version**: 1.0.0 
+**Version**: 1.3.0 
 
 ## Overview
- a React application that uses the Axios library to make user-initiated reqeusts for data from a thrid-party API.
+this project is a practice project for week 1 of 301 course at asac
 
 ## Getting Started
 
 ## Architecture
-techs : js , css , reactjs , booststrap 
+ technologies  : js , css , reactjs , booststrap , expressjs , nodejs
 
 ## Change Log
 
-23-05-2021 11:03pm - Application now has a fully-functional express server 
+23-05-2021 - Application now has a fully-functional express server 
+25-05-2021 - added whether api
+28-5-2021  - added movies feature 
+
 
 ## Credit and Collaborations
 
 - - - 
 
-Name of feature: ***Set up your React repository & API keys.***
+Name of feature: ***#1 Set up your React repository & API keys.***
 
 Estimate of time needed to complete: ***30 min*** 
 
@@ -31,7 +34,7 @@ Actual time needed to complete: *** 45 min ***
 
 - - - 
 
-Name of feature: ***Set up your React repository & API keys.***
+Name of feature: ***#2 Set up your React repository & API keys.***
 
 Estimate of time needed to complete: ***2 hours*** 
 
@@ -40,3 +43,38 @@ Start time: ***4:00***
 Finish time: ***--***
 
 Actual time needed to complete: *** 4 hours***
+
+- - - 
+Name of feature: ***#3 create api server***
+
+Estimate of time needed to complete: ***4 hours***
+
+Start time:***3:00***
+
+Finish time: --
+
+Actual time needed to complete: ***12 hours***
+- - -
+Name of feature: ***#4 external whether api server***
+
+Estimate of time needed to complete: ***4 hours***
+
+Start time: ***11:00 pm***
+
+Finish time: ***4:00 am***
+
+Actual time needed to complete: ***5 hours***
+
+- - -
+
+Name of feature: ***#5 external whether api server***
+
+Estimate of time needed to complete: ***4 hours***
+
+Start time:***4:00am***
+
+Finish time: --
+
+Actual time needed to complete: ***4 hours***
+
+- - - 

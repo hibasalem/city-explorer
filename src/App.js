@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Weather from './components/Weather'
+import Movies from './components/Movies'
+
 
 
 class App extends React.Component {
@@ -12,27 +14,32 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            search: '',
+            searchQuery: '',
             data: '',
             map: false,
             error: false,
             weather: false,
-            weatherInfo: {},
-
+            weatherInfo: [],
+            movies: false,
+            moviesInfo: [],
         }
     }
 
     getLocation = async (event) => {
         event.preventDefault();
-        let url = `https://eu1.locationiq.com/v1/search.php?key=pk.8b89beb044f7bff265b36ceb931a413c&q=${this.state.search}&format=json`;
+        let locationUrl = `https://eu1.locationiq.com/v1/search.php?key=pk.8b89beb044f7bff265b36ceb931a413c&q=${this.state.searchQuery}&format=json`;
 
         let serverRoute = process.env.REACT_APP_SERVER;
-        const weatherUrl = `${serverRoute}weather?city_name=${this.state.search.toLowerCase()}`;
+
+        const weatherUrl = `${serverRoute}/weather?city_name=${this.state.searchQuery}`;
+
+        const moviesUrl = `${serverRoute}/movies?city_name=${this.state.searchQuery}`;
 
         try {
-            let result = await axios.get(url);
-            // console.log(result);
+
+            let result = await axios.get(locationUrl);
             let weatherData = await axios.get(weatherUrl);
+            let moviesData = await axios.get(moviesUrl);
 
             this.setState({
                 data: result.data[0],
@@ -40,6 +47,8 @@ class App extends React.Component {
                 weatherInfo: weatherData.data,
                 weather: true,
                 error: false,
+                movies: true,
+                moviesInfo: moviesData.data,
             })
         }
         catch {
@@ -47,7 +56,7 @@ class App extends React.Component {
                 map: false,
                 error: true,
                 weather: false,
-
+                movies: false,
             })
 
         }
@@ -55,17 +64,20 @@ class App extends React.Component {
 
     updateSearch = (event) => {
         this.setState({
-            search: event.target.value
+            searchQuery: event.target.value
         })
-        console.log(this.state.search);
+        console.log(this.state.searchQuery);
     }
+
+   
 
 
     render() {
         const myStyle = {
-            marginLeft: "23%",
-            marginRight: "15%",
+            marginLeft: "26%",
+            marginRight: "26%",
         };
+
 
         return (
             <div style={myStyle}>
@@ -77,29 +89,6 @@ class App extends React.Component {
                         <input type='submit' value='Explore' />
                     </Form.Group>
                 </Form>
-
-                {this.state.weather &&
-                        <Weather
-                        weather={this.state.weatherInfo}
-                       cityName= {this.state.data.display_name}
-                        />
-
-                    // <Card style={{ width: '45rem' }} >
-                    //     <Card.Body>
-                    //         <Card.Title>The weather on {this.state.data.display_name}</Card.Title>
-                    //     </Card.Body>
-
-                    //     <Card.Body>
-
-                    //         <Card.Text>{this.state.weatherInfo[0].date}</Card.Text>
-                    //         {/* <Card.Text>{this.props.weather[1]}</Card.Text>
-                    //         <Card.Text>{this.props.weather[2]}</Card.Text> */}
-
-                    //     </Card.Body>
-                    // </Card>
-
-
-                }
 
                 {this.state.map &&
                     <Card style={{ width: '45rem' }} >
@@ -118,6 +107,26 @@ class App extends React.Component {
                         </Card.Body>
                     </Card>
                 }
+
+                {this.state.weather &&
+                    <Weather
+                        weather={this.state.weatherInfo}
+                        cityName={this.state.searchQuery}
+                    />
+                }
+
+
+                {this.state.movies &&
+                    <Movies
+                        cityMovies={this.state.moviesInfo}
+                        cityName={this.state.searchQuery}
+
+                    />
+                }
+
+
+
+
                 {this.state.error &&
                     <Card style={{ width: '35rem' }} >
                         <Card.Body>
