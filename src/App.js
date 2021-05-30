@@ -125,9 +125,6 @@ class App extends React.Component {
                     />
                 }
 
-
-
-
                 {this.state.error &&
                     <Card style={{ width: '35rem' }} >
                         <Card.Body>
